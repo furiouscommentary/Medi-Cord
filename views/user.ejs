@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER_PROFILE</title>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="css/user.css">
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div class="title">
+            <h1>Patient Profile</h1>
+        </div>
+
+        <!-- Navbar -->
+        <ul>
+            
+            <li>
+                <form action="/logout?_method=DELETE" method="post"><button type="submit">
+                    <i class="fa fa-sign-out-alt fa-2x"></i>
+                </button></form>
+                
+            </li>
+        </ul>
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <img src="img/PATIENT.jpg" alt="" width="100" height="100">
+
+            <div class="name">
+               <%= name %> 
+            </div>
+           
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a href="#profile" class="active">Profile</a>
+                <hr align="center">
+            </div>
+           
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+        <h2>IDENTITY</h2>
+        <div class="card">
+            <div class="card-body">
+                  <table>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td><%= name %> </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Father's Name</td>
+                            <td>:</td>
+                            <td><%= fathername %> </td>
+                        </tr>
+                        <tr>
+                            <td>DOB</td>
+                            <td>:</td>
+                            <td><%= dob %> </td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td>:</td>
+                            <td><%= age %> </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td><%= email %> </td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td>:</td>
+                            <td><%= phone %> </td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>:</td>
+                            <td>Male</td>
+                        </tr>
+                        <tr>
+                            <td>Martial Status</td>
+                            <td>:</td>
+                            <td><%= martialstatus %> </td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2>REPORTS</h2>
+        <div class="card">
+            <form action="/user" method="post" class="item">
+                <input type="text" name="newItem" placeholder="NEW FILE" autocomplete="off" >
+                <button type="submit" name="button">ADD NEW MEDICAL RECORD</button>
+            </form>
+            <ul>
+                <%   for(var i=0; i<newListItems.length;i++){ %>
+                   <div class="item">
+                    
+                    <a href="/report" ><%= newListItems[i] %> </a>
+               
+                   </div>
+                       <% }%>
+                </ul>
+        </div>
+    </div>
+    <!-- End -->
+</body>
+</html>
