@@ -106,7 +106,7 @@ app.post("/user",function (req,res){
  
 
 //USING STATIC FILE
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "public")));
 
 
 //SET VIEWS
