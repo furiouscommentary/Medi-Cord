@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== "production"){
 
 //Importing libraries that we installed using npm
 const express = require("express")
+const path = require("path")
 const app = express()
 const bcrypt = require("bcrypt") // Importing bcrypt package
 const passport = require("passport")
@@ -109,7 +110,7 @@ app.use(express.static('public'));
 
 
 //SET VIEWS
-app.set('views', './views');
+app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 
 
